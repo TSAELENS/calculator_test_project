@@ -13,3 +13,24 @@ describe('Opérations de la calculatrice', () => {
     expect(multiplication(4, 3)).toBe(12);
   });
 });
+
+
+describe('Historique des calculs', () => {
+    let historique;
+  
+    beforeEach(() => {
+      historique = new Historique();
+    });
+  
+    test('ajouter un calcul à l\'historique', () => {
+      historique.ajouter('2 + 3 = 5');
+      expect(historique.lister()).toContain('2 + 3 = 5');
+    });
+  
+    test('effacer l\'historique', () => {
+      historique.ajouter('4 * 3 = 12');
+      historique.effacer();
+      expect(historique.lister()).toHaveLength(0);
+    });
+  });
+  

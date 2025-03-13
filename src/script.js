@@ -35,6 +35,44 @@ document.getElementById('clearHistory').addEventListener('click', () => {
 });
 
 function afficherHistorique() {
-  const historiqueElement = document.getElementById('historique');
-  historiqueElement.innerHTML = historique.lister().map(calc => `<div>${calc}</div>`).join('');
-}
+    const historiqueElement = document.getElementById('historique');
+    historiqueElement.innerHTML = '';
+  
+    historique.lister().forEach(calc => {
+      const div = document.createElement('div');
+      div.textContent = calc;
+      div.style.cursor = 'pointer';
+  
+      div.addEventListener('click', () => {
+        const parts = calc.split('=');
+        if (parts.length === 2) {
+          const expression = parts[0].trim(); 
+          let operator;
+          if (expression.includes('+')) {
+            operator = '+';
+          } else if (expression.includes('-')) {
+            operator = '-';
+          } else if (expression.includes('*')) {
+            operator = '*';
+          }
+  
+          if (operator) {
+            const numbers = expression.split(operator);
+            if (numbers.length === 2) {
+              document.getElementById('input1').value = numbers[0].trim();
+              document.getElementById('input2').value = numbers[1].trim();
+              if(operator === '+') document.getElementById('addButton').click();
+              else if(operator === '-') document.getElementById('subButton').click();
+              else if(operator === '*') document.getElementById('mulButton').click();
+            }
+          }
+        }
+      });
+  
+      historiqueElement.appendChild(div);
+    });
+  }
+  
+
+
+  

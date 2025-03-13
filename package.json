@@ -8,6 +8,9 @@
     "e2e": "playwright test",
     "lint": "eslint ."
   },
+  "jest":{
+    "testPathIgnorePatterns": ["/tests/e2e/e2e.spec.js"]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

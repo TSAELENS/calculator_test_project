@@ -1,4 +1,4 @@
-const { addition, soustraction, multiplication, Historique } = require('../src/calculator');
+const { addition, soustraction, multiplication, Historique } = require('../../src/calculator');
 
 describe('Opérations de la calculatrice', () => {
   test('addition de 2 et 3 donne 5', () => {

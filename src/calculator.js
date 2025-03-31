@@ -1,27 +1,28 @@
-export function addition(a, b) {
-    return a + b;
+function addition(a, b) {
+  return a + b;
+}
+
+function soustraction(a, b) {
+  return a - b;
+}
+
+function multiplication(a, b) {
+  return a * b;
+}
+
+class Historique {
+  constructor() {
+    this.calculs = [];
   }
-  
-  export function soustraction(a, b) {
-    return a - b;
+  ajouter(calcul) {
+    this.calculs.push(calcul);
   }
-  
-  export function multiplication(a, b) {
-    return a * b;
+  lister() {
+    return this.calculs;
   }
-  
-  export class Historique {
-    constructor() {
-      this.calculs = [];
-    }
-    ajouter(calcul) {
-      this.calculs.push(calcul);
-    }
-    lister() {
-      return this.calculs;
-    }
-    effacer() {
-      this.calculs = [];
-    }
+  effacer() {
+    this.calculs = [];
   }
-  
+}
+
+module.exports = { addition, soustraction, multiplication, Historique };

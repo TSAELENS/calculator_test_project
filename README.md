@@ -39,6 +39,11 @@ Pour le mode interactif :
 npx playwright test --ui
 ```
 
+### Tests ESLINT 
+```bash
+npm run lint 
+```
+
 ### Démarche TDD
 La démarche TDD (Test-Driven Development) que vous suivez se décompose en trois étapes principales :
 

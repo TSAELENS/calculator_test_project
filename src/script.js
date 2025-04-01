@@ -33,10 +33,15 @@ document.getElementById('clearHistory').addEventListener('click', () => {
   historique.effacer();
   afficherHistorique();
 });
-
 function afficherHistorique() {
   const historiqueElement = document.getElementById('historique');
-  historiqueElement.innerHTML = '';
+
+  // Supprime uniquement les éléments enfants ajoutés dynamiquement, sans toucher au titre
+  Array.from(historiqueElement.children).forEach(child => {
+    if (!child.classList.contains('historique-title')) {
+      historiqueElement.removeChild(child);
+    }
+  });
 
   historique.lister().forEach(calc => {
     const div = document.createElement('div');
@@ -66,6 +71,7 @@ function afficherHistorique() {
     historiqueElement.appendChild(div);
   });
 }
+
 
   
   

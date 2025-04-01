@@ -1,8 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-
-
-
 test('affiche le résultat de l\'addition sur l\'interface', async ({ page }) => {
   await page.goto('http://127.0.0.1:5500/src/index.html');
   await page.waitForSelector('#input1');
